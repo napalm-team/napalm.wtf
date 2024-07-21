@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --napalm-green: #00ff00a4;
+  --napalm-dark-green: #339e33b4;
+  --beta-color: #71a189;
+  --napalm-red: #cc686893;
+  --napalm-dark-red: #cc00008f;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1); 
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.45);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 5px;
+  padding: 10px;
+  display: inline-block;
+  -webkit-text-stroke: 1.5px black;
+}
+
+h1 .beta {
+  color: var(--beta-color);
+}
+
+.download a {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: var(--napalm-dark-red);
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 2px solid black;
+  -webkit-text-stroke: 0.5px black;
+  font-size: 1.1rem;
+}
+
+.download a:hover {
+  background-color: var(--napalm-red);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
