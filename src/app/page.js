@@ -1,22 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useRouter } from 'next/router';
 
 export default function Home() {
-  const [downloadLink, setDownloadLink] = useState('');
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const currentLocation = window.location.href;
-      setDownloadLink(`${currentLocation}/download`);
-    }
-  }, []);
+  const router = useRouter();
+  
+  const downloadLink = `${router.asPath}/download`;
 
   return (
     <div className="content">
       <h1>Napalm <span className="beta">BETA</span> Loader</h1>
       <div className="download">
-        {downloadLink && (
-          <a href={downloadLink} className="button">Download</a>
-        )}
+        <a href={downloadLink} className="button">Download</a>
       </div>
     </div>
   );
